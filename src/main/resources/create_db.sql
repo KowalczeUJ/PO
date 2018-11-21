@@ -1,0 +1,41 @@
+
+USE HOTEL;
+
+CREATE TABLE IF NOT EXISTS user (
+  id INT(10) AUTO_INCREMENT NOT NULL,
+  username VARCHAR(50) NOT NULL,
+  password VARCHAR(50) NOT NULL,
+  type TINYINT(4) NOT NULL DEFAULT '2',
+  is_regular TINYINT(1) DEFAULT '0',
+  PRIMARY KEY (id)
+);
+
+CREATE TABLE IF NOT EXISTS room (
+  id INT(10) AUTO_INCREMENT NOT NULL,
+  number varchar(5) NOT NULL,
+  floor int(10) NOT NULL,
+  beds int(10) NOT NULL,
+  PRIMARY KEY (id)
+);
+
+CREATE TABLE IF NOT EXISTS user_details (
+  id INT(10) AUTO_INCREMENT NOT NULL,
+  user_id INT(10) NOT NULL,
+  address VARCHAR(50) NOT NULL,
+  city VARCHAR(50) NOT NULL,
+  phoneNumber VARCHAR(12) NOT NULL,
+  birthDate DATE NOT NULL,
+  PRIMARY KEY (id),
+  FOREIGN KEY (user_id) REFERENCES user (id)
+);
+
+CREATE TABLE IF NOT EXISTS reservation (
+  id INT(10) AUTO_INCREMENT NOT NULL,
+  user_id INT(10) NOT NULL,
+  room_id INT(10) NOT NULL,
+  price DECIMAL(6,2) NOT NULL,
+  date DATE NOT NULL,
+  PRIMARY KEY (id),
+  FOREIGN KEY (user_id) REFERENCES user(id),
+  FOREIGN KEY (room_id) REFERENCES room(id)
+);
