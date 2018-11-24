@@ -1,26 +1,28 @@
-import com.po.db.User;
-import com.po.user.UserType;
+import com.po.hotel.Hotel;
+import com.po.hotel.HotelService;
+import com.po.common.Period;
+import com.po.room.AvailableRooms;
 import com.po.util.HibernateUtil;
-import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+
+import java.time.LocalDate;
 
 public class App {
 
     public static void main(String[] args) {
         SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
-        Session session = sessionFactory.openSession();
-        session.beginTransaction();
 
-        User user = User.builder()
-                .username("marecki123")
-                .password("qwerty")
-                .type(UserType.BASIC)
-                .isRegular(false)
-                .build();
-        session.save(user);
-        session.getTransaction().commit();
+        Hotel hotel = new HotelService(sessionFactory);
 
-        session.close();
+        AvailableRooms rooms = hotel.getAvailableRooms(
+                new Period(
+                        LocalDate.of(2018, 11, 27),
+                        LocalDate.of(2018, 11, 28)
+                )
+        );
+
+        System.out.println(rooms);
+
         sessionFactory.close();
     }
 

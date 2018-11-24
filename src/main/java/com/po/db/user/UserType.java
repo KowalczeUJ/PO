@@ -1,4 +1,4 @@
-package com.po.user;
+package com.po.db.user;
 
 import com.google.common.collect.Maps;
 import lombok.AllArgsConstructor;
@@ -31,4 +31,5 @@ public enum UserType {
                         format("User type with id=%d is not known.", typeId))
                 );
     }
+
 }

@@ -1,5 +1,6 @@
-package com.po.db;
+package com.po.db.user;
 
+import com.po.db.user.User;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -39,19 +40,19 @@ public class UserDetails implements Serializable {
     )
     private User user;
     
-    @Column(name = "address", length = 50)
+    @Column(name = "address", length = 50, nullable = false)
     @ColumnDefault("NULL")
     private String address;
     
-    @Column(name = "city", length = 50)
+    @Column(name = "city", length = 50, nullable = false)
     @ColumnDefault("NULL")
     private String city;
     
-    @Column(name = "phoneNumber", length = 12)
+    @Column(name = "phoneNumber", length = 12, nullable = false)
     @ColumnDefault("NULL")
     private String phoneNumber;
 
-    @Column(name = "birth_date")
+    @Column(name = "birth_date", nullable = false)
     @ColumnDefault("NULL")
     private LocalDate birthDate;
 }

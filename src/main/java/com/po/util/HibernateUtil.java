@@ -1,5 +1,9 @@
 package com.po.util;
 
+import com.po.db.reservation.Reservation;
+import com.po.db.room.Room;
+import com.po.db.user.User;
+import com.po.db.user.UserDetails;
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
@@ -13,10 +17,10 @@ public class HibernateUtil {
     static {
         Configuration configuration = new Configuration();
         configuration.configure();
-        configuration.addAnnotatedClass(com.po.db.User.class);
-        configuration.addAnnotatedClass(com.po.db.UserDetails.class);
-        configuration.addAnnotatedClass(com.po.db.Room.class);
-        configuration.addAnnotatedClass(com.po.db.Reservation.class);
+        configuration.addAnnotatedClass(User.class);
+        configuration.addAnnotatedClass(UserDetails.class);
+        configuration.addAnnotatedClass(Room.class);
+        configuration.addAnnotatedClass(Reservation.class);
         serviceRegistry = new StandardServiceRegistryBuilder().applySettings(configuration.getProperties()).build();
         try {
             sessionFactory = configuration.buildSessionFactory(serviceRegistry);

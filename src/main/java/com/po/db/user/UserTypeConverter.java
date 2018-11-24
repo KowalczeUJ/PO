@@ -1,4 +1,4 @@
-package com.po.user;
+package com.po.db.user;
 
 import javax.persistence.AttributeConverter;
 import java.util.Optional;
