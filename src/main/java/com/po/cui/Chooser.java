@@ -17,14 +17,14 @@ public class Chooser {
         int len = list.size();
         Util.print("Please choose one of following, by typing the number:");
         for (int i =0; i < len; i++){
-            Util.print(String.format("%d : %s",i,list.get(i)));
+            Util.print(String.format("%i : %s",i,list.get(i)));
         }
         while(true){
             String str = Util.getInput();
             try{
                 Integer num =  Util.strToInteger(str);
                 if (num < 0 || num >= len) {
-                    Util.print(String.format("%d must be in range: 0 to %d, please try again",num,len-1));
+                    Util.print(String.format("%i must be in range: 0 to %i, please try again",num,len-1));
                     continue;
                 } else {
                     return list.get(num);
@@ -46,14 +46,14 @@ public class Chooser {
         int len = list.size();
         Util.print("Please choose one of following, by typing the number:");
         for (int i =0; i < len; i++){
-            Util.print(String.format("%d : %f",i,list.get(i)));
+            Util.print(String.format("%i : %d",i,list.get(i)));
         }
         while(true){
             String str = Util.getInput();
             try{
                 Integer num =  Util.strToInteger(str);
                 if (num < 0 || num >= len) {
-                    Util.print(String.format("%d must be in range: 0 to %d, please try again",num,len-1));
+                    Util.print(String.format("%i must be in range: 0 to %i, please try again",num,len-1));
                     continue;
                 } else {
                     return list.get(num);
@@ -75,14 +75,14 @@ public class Chooser {
         int len = list.size();
         Util.print("Please choose one of following, by typing the number:");
         for (int i =0; i < len; i++){
-            Util.print(String.format("%d : %d",i,list.get(i)));
+            Util.print(String.format("%i : %i",i,list.get(i)));
         }
         while(true){
             String str = Util.getInput();
             try{
                 Integer num =  Util.strToInteger(str);
                 if (num < 0 || num >= len) {
-                    Util.print(String.format("%d must be in range: 0 to %d, please try again",num,len-1));
+                    Util.print(String.format("%i must be in range: 0 to %i, please try again",num,len-1));
                     continue;
                 } else {
                     return list.get(num);
@@ -103,14 +103,14 @@ public class Chooser {
         int len = list.size();
         Util.print("Please choose one of following, by typing the number:");
         for (int i =0; i < len; i++){
-            Util.print(String.format("%d : %s",i,Util.dateToStr(list.get(i))));
+            Util.print(String.format("%i : %s",i,Util.dateToStr(list.get(i))));
         }
         while(true){
             String str = Util.getInput();
             try{
                 Integer num =  Util.strToInteger(str);
                 if (num < 0 || num >= len) {
-                    Util.print(String.format("%d must be in range: 0 to %d, please try again",num,len-1));
+                    Util.print(String.format("%i must be in range: 0 to %i, please try again",num,len-1));
                     continue;
                 } else {
                     return list.get(num);

@@ -9,7 +9,7 @@ public class Provider {
             try{
                 Integer num =  Util.strToInteger(str);
                 if (num < min || num > max) {
-                    Util.print(String.format("%d must be in range: %d to %d, please try again",num,min,max));
+                    Util.print(String.format("%i must be in range: %i to %i, please try again",num,min,max));
                     continue;
                 } else {
                     return num;
@@ -27,7 +27,7 @@ public class Provider {
             try{
                 Double num =  Util.strToDouble(str);
                 if (num < min || num > max) {
-                    Util.print(String.format("%f must be in range: %f to %f, please try again",num,min,max));
+                    Util.print(String.format("%d must be in range: %d to %d, please try again",num,min,max));
                     continue;
                 } else {
                     return num;
