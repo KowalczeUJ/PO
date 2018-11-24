@@ -30,7 +30,12 @@ public class RoomRepositoryImpl implements RoomRepository {
     @Override
     public List<RoomView> getAvailableRooms(Period period) {
         Query query = session.createQuery(
-                "SELECT new com.po.room.RoomView(room.floor, room.beds, room.type, room.pricePerNight) " +
+                "SELECT new com.po.room.RoomView(" +
+                    "   room.floor, " +
+                    "   room.beds, " +
+                    "   room.type, " +
+                    "   room.pricePerNight" +
+                    ") " +
                     "FROM Room room " +
                     "WHERE room.id not in (" +
                     "   SELECT r.room.id " +
@@ -44,16 +49,6 @@ public class RoomRepositoryImpl implements RoomRepository {
         query.setParameter("end", period.getEndDate());
 
         return query.getResultList();
-    }
-
-    @Override
-    public void updateRoomAvailability(int roomId) {
-        session.createQuery(
-                "UPDATE Room room " +
-                    "   SET room.isAvailable = 0 " +
-                    "   WHERE room.id = :id")
-                .setParameter("id", roomId)
-                .executeUpdate();
     }
 
 }

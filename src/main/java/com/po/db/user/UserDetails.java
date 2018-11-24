@@ -48,7 +48,7 @@ public class UserDetails implements Serializable {
     @ColumnDefault("NULL")
     private String city;
     
-    @Column(name = "phoneNumber", length = 12, nullable = false)
+    @Column(name = "phone_number", length = 12, nullable = false)
     @ColumnDefault("NULL")
     private String phoneNumber;
 

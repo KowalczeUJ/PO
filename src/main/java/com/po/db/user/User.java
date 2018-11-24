@@ -47,4 +47,5 @@ public class User implements Serializable {
     @Column(name = "created_on")
     @CreationTimestamp
     private LocalDateTime createdOn;
+
 }

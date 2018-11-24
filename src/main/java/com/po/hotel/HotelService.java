@@ -19,12 +19,10 @@ public class HotelService implements Hotel {
     private final ReservationRepository reservationRepository;
     private final RoomRepository roomRepository;
 
-
     public HotelService(SessionFactory sessionFactory) {
         this.sessionFactory = sessionFactory;
         reservationRepository = new ReservationRepositoryImpl(this.sessionFactory);
         roomRepository = new RoomRepositoryImpl(this.sessionFactory);
-
     }
 
     @Override
@@ -40,7 +38,6 @@ public class HotelService implements Hotel {
     @Override
     public void makeReservation(Reservation reservation) {
         reservationRepository.makeReservation(reservation);
-        roomRepository.updateRoomAvailability(reservation.getRoom().getId());
     }
 
     @Override
@@ -52,4 +49,5 @@ public class HotelService implements Hotel {
                 .rooms(rooms)
                 .build();
     }
+
 }

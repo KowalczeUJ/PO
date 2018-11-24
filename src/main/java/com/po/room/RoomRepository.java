@@ -13,6 +13,4 @@ public interface RoomRepository {
 
     List<RoomView> getAvailableRooms(Period period);
 
-    void updateRoomAvailability(int roomId);
-
 }

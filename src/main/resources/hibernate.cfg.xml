@@ -7,7 +7,7 @@
     <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
     <property name="hibernate.connection.username">projektowanie</property>
     <property name="hibernate.connection.password">obiektowe</property>
-    <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/hotel</property>
+    <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/hotel?useSSL=false</property>
     <property name="hibernate.dialect">org.hibernate.dialect.MySQL57Dialect</property>
     <property name="show_sql">false</property>
     <property name="connection.pool_size">10</property>

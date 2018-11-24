@@ -1,9 +1,15 @@
 package com.po.reservation;
 
-import com.po.db.reservation.Reservation;
+import java.util.List;
 
 public interface ReservationRepository {
 
-    void makeReservation(Reservation reservation);
+    List<ReservationDto> getAllReservations();
+
+    List<UserReservationDto> getUserReservations(int userId);
+
+    void makeReservation(com.po.db.reservation.Reservation reservation);
+
+    void deleteReservation(int reservationId);
 
 }
