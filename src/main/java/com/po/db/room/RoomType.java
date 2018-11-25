@@ -16,7 +16,7 @@ public enum RoomType {
     STUDIO(0, 1),
     DELUXE(1, 1.2),
     PREMIER(2, 1.5),
-    PENTHOUSE(3, 2.5);
+    PENTHOUSE(3, 2.0);
 
     @Getter
     private final int id;

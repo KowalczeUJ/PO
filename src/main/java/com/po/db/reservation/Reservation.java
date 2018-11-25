@@ -55,8 +55,8 @@ public class Reservation implements Serializable {
     @Column(name = "price", precision = 6, scale = 2, nullable = false)
     private BigDecimal price;
 
-    @Column(name = "guest_number", nullable = false)
-    private int guestNumber;
+    @Column(name = "persons", nullable = false)
+    private int persons;
 
     @Column(name = "start_date", nullable = false)
     private LocalDate startDate;
@@ -66,7 +66,6 @@ public class Reservation implements Serializable {
 
     @Column(name = "created_on")
     @CreationTimestamp
-    private LocalDateTime creationDate;
-
+    private LocalDateTime createdOn;
 
 }

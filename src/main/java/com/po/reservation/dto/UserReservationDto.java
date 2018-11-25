@@ -1,5 +1,4 @@
-package com.po.reservation;
-
+package com.po.reservation.dto;
 
 import com.po.db.room.RoomType;
 import lombok.AllArgsConstructor;
@@ -13,13 +12,10 @@ import java.time.LocalDateTime;
 @Value
 @Builder
 @AllArgsConstructor
-public class ReservationDto {
+public class UserReservationDto {
 
     int userId;
-    String username;
-    Boolean isRegular;
 
-    int roomId;
     String roomNumber;
     RoomType roomType;
 
@@ -28,6 +24,5 @@ public class ReservationDto {
     LocalDate startDate;
     LocalDate endDate;
     LocalDateTime createdOn;
-
 
 }

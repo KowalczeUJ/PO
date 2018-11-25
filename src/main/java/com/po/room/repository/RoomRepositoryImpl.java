@@ -1,7 +1,9 @@
-package com.po.room;
+package com.po.room.repository;
 
 import com.po.db.room.Room;
 import com.po.common.Period;
+import com.po.room.RoomData;
+import com.po.room.RoomView;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.query.Query;
@@ -18,7 +20,9 @@ public class RoomRepositoryImpl implements RoomRepository {
 
     @Override
     public void save(Room room) {
+        session.beginTransaction();
         session.save(room);
+        session.getTransaction().commit();
     }
 
     @Override
@@ -49,6 +53,24 @@ public class RoomRepositoryImpl implements RoomRepository {
         query.setParameter("end", period.getEndDate());
 
         return query.getResultList();
+    }
+
+    @Override
+    public RoomData getRoomDataForId(int roomId) {
+        Query query = session.createQuery(
+                "SELECT new com.po.room.RoomData(" +
+                    "   room.id, " +
+                    "   room.type, " +
+                    "   room.pricePerNight " +
+                    ") " +
+                    "FROM Room room " +
+                    "WHERE room.id = :roomId",
+                RoomData.class
+        );
+
+        query.setParameter("roomId", roomId);
+
+        return (RoomData) query.getSingleResult();
     }
 
 }

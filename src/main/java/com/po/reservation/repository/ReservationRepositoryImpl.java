@@ -1,6 +1,8 @@
-package com.po.reservation;
+package com.po.reservation.repository;
 
 import com.po.db.reservation.Reservation;
+import com.po.reservation.dto.ReservationDto;
+import com.po.reservation.dto.UserReservationDto;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.query.Query;
@@ -9,7 +11,7 @@ import java.util.List;
 
 public class ReservationRepositoryImpl implements ReservationRepository {
 
-    private Session session;
+    private final Session session;
 
     public ReservationRepositoryImpl(SessionFactory sessionFactory) {
         this.session = sessionFactory.openSession();
@@ -58,7 +60,7 @@ public class ReservationRepositoryImpl implements ReservationRepository {
                         "JOIN res.user user " +
                         "WHERE res.user.id = :userId " +
                         "ORDER BY res.createdOn DESC ",
-                ReservationDto.class
+                UserReservationDto.class
         );
         query.setParameter("userId", userId);
 
@@ -67,7 +69,9 @@ public class ReservationRepositoryImpl implements ReservationRepository {
 
     @Override
     public void makeReservation(Reservation reservation) {
+        session.beginTransaction();
         session.save(reservation);
+        session.getTransaction().commit();
     }
 
     @Override
