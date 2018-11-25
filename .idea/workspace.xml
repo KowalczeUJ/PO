@@ -2,15 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3423604c-b598-4225-aa5b-0282a20fa4a0" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/po/cui/Printer.java" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/App.java" afterPath="$PROJECT_DIR$/src/main/java/App.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/po/common/Period.java" afterPath="$PROJECT_DIR$/src/main/java/com/po/common/Period.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/po/db/room/Room.java" afterPath="$PROJECT_DIR$/src/main/java/com/po/db/room/Room.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/po/room/AvailableRooms.java" afterPath="$PROJECT_DIR$/src/main/java/com/po/room/AvailableRooms.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/po/room/RoomData.java" afterPath="$PROJECT_DIR$/src/main/java/com/po/room/RoomData.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/po/room/RoomView.java" afterPath="$PROJECT_DIR$/src/main/java/com/po/room/RoomView.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/hibernate.cfg.xml" afterPath="$PROJECT_DIR$/src/main/resources/hibernate.cfg.xml" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -98,8 +90,8 @@
       <file leaf-file-name="HotelService.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/po/hotel/HotelService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="36">
-              <caret line="22" column="0" lean-forward="true" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
+            <state relative-caret-position="126">
+              <caret line="27" column="0" lean-forward="true" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -567,11 +559,18 @@
       <option name="project" value="LOCAL" />
       <updated>1543075632698</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Add better toString for Room, AvailableRooms RoomData RoomView">
+      <created>1543180676187</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1543180676187</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="12196000" />
+    <option name="totallyTimeSpent" value="12351000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="112" y="27" width="1847" height="1055" extended-state="6" />
@@ -625,7 +624,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Add cui, untested" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add cui, untested" />
+    <MESSAGE value="Add better toString for Room, AvailableRooms RoomData RoomView" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add better toString for Room, AvailableRooms RoomData RoomView" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -917,14 +917,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/App.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="324">
-          <caret line="29" column="15" lean-forward="false" selection-start-line="29" selection-start-column="15" selection-end-line="29" selection-end-column="15" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/po/room/RoomView.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="252">
@@ -963,10 +955,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/App.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="324">
+          <caret line="29" column="15" lean-forward="false" selection-start-line="29" selection-start-column="15" selection-end-line="29" selection-end-column="15" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/po/hotel/HotelService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="36">
-          <caret line="22" column="0" lean-forward="true" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
+        <state relative-caret-position="126">
+          <caret line="27" column="0" lean-forward="true" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
