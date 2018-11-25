@@ -43,4 +43,8 @@ public class Room implements Serializable {
     @Column(name = "price_per_night", precision = 6, scale = 2, nullable = false)
     private BigDecimal pricePerNight;
 
+    public String toString(){
+        return String.format("id: %d, number: %d floor: %d, number of beds: %d, room type: %s, price per night: %f",id,number,floor,beds,type,pricePerNight);
+    }
+
 }

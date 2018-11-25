@@ -1,4 +1,5 @@
 import com.po.common.Period;
+import com.po.cui.Printer;
 import com.po.hotel.Hotel;
 import com.po.hotel.HotelService;
 import com.po.room.AvailableRooms;
@@ -26,7 +27,7 @@ public class App {
         );
 
         System.out.println(rooms);
-
+        Printer.dostuff(rooms);
         sessionFactory.close();
     }
 

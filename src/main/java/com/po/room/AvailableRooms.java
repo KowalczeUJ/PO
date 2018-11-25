@@ -15,4 +15,12 @@ public class AvailableRooms {
     Period period;
     List<RoomView> rooms;
 
+    public String toString(){
+        String out = String.format("Rooms available within period %s \n",period.toString());
+        for(int i =0; i< rooms.size(); i++){
+            out = out.concat(rooms.get(i).toString()).concat("\n");
+        }
+        return out;
+    }
+
 }
