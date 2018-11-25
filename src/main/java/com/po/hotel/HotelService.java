@@ -13,6 +13,9 @@ import com.po.room.RoomData;
 import com.po.room.RoomView;
 import com.po.room.repository.RoomRepository;
 import com.po.room.repository.RoomRepositoryImpl;
+import com.po.user.HotelUserData;
+import com.po.user.User;
+import com.po.user.UserData;
 import com.po.user.repository.UserRepository;
 import com.po.user.repository.UserRepositoryImpl;
 import org.hibernate.SessionFactory;
@@ -72,6 +75,32 @@ public class HotelService implements Hotel {
     @Override
     public List<UserReservationDto> getUserReservations(int userId) {
         return reservationRepository.getUserReservations(userId);
+    }
+
+    @Override
+    public User login(UserData userData) {
+        return userRepository.loginUser(userData);
+    }
+
+    @Override
+    public void registerUser(UserData userData) {
+        if (!userRepository.usernameExists(userData.getUsername())) {
+            userRepository.addBasicUser(userData);
+        }
+    }
+
+    @Override
+    public void registerHotelUser(HotelUserData hotelUserData) {
+        if (!userRepository.usernameExists(hotelUserData.getUsername())) {
+            userRepository.addHotelUser(hotelUserData);
+        }
+    }
+
+    @Override
+    public void deleteUser(int userId) {
+        if (userRepository.exists(userId)) {
+            userRepository.deleteUser(userId);
+        }
     }
 
 }

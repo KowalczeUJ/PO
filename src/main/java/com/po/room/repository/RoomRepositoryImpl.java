@@ -28,7 +28,8 @@ public class RoomRepositoryImpl implements RoomRepository {
     @Override
     public void delete(String roomNumber) {
         session.createQuery("DELETE FROM Room WHERE number = :number")
-                .setParameter("number", roomNumber).executeUpdate();
+                .setParameter("number", roomNumber)
+                .executeUpdate();
     }
 
     @Override

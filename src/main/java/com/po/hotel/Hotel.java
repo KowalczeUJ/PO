@@ -6,10 +6,21 @@ import com.po.reservation.ReservationData;
 import com.po.reservation.dto.ReservationDto;
 import com.po.reservation.dto.UserReservationDto;
 import com.po.room.AvailableRooms;
+import com.po.user.HotelUserData;
+import com.po.user.User;
+import com.po.user.UserData;
 
 import java.util.List;
 
 public interface Hotel {
+
+    User login(UserData userData);
+
+    void registerUser(UserData userData);
+
+    void registerHotelUser(HotelUserData hotelUserData);
+
+    void deleteUser(int userId);
 
     void addRoom(Room room);
 

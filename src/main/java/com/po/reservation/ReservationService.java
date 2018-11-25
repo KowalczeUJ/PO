@@ -44,7 +44,6 @@ public class ReservationService {
                 .build();
 
         reservationRepository.makeReservation(reservation);
-
     }
 
     private BigDecimal getTotalReservationCost() {
@@ -62,4 +61,5 @@ public class ReservationService {
 
         return totalCost.getTotalCost().setScale(2, RoundingMode.HALF_DOWN);
     }
+
 }

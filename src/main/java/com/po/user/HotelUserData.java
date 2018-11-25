@@ -2,14 +2,12 @@ package com.po.user;
 
 import com.po.db.user.UserType;
 import lombok.AllArgsConstructor;
-import lombok.Data;
+import lombok.Value;
 
-@Data
+@Value
 @AllArgsConstructor
-public class User {
+public class HotelUserData extends UserData {
 
-    int userId;
-    String username;
     UserType type;
 
 }
