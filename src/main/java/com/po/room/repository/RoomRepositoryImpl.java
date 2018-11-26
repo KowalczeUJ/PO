@@ -33,6 +33,7 @@ public class RoomRepositoryImpl implements RoomRepository {
     }
 
     @Override
+    @SuppressWarnings("unchecked")
     public List<RoomView> getAvailableRooms(Period period) {
         Query query = session.createQuery(
                 "SELECT new com.po.room.RoomView(" +
@@ -72,6 +73,21 @@ public class RoomRepositoryImpl implements RoomRepository {
         query.setParameter("roomId", roomId);
 
         return (RoomData) query.getSingleResult();
+    }
+
+    @Override
+    @SuppressWarnings("unchecked")
+    public List<RoomView> getAllRooms() {
+        return session.createQuery(
+                "SELECT new com.po.room.RoomView(" +
+                    "   room.floor, " +
+                    "   room.beds, " +
+                    "   room.type, " +
+                    "   room.pricePerNight " +
+                    ") " +
+                    "FROM Room room ",
+                RoomView.class)
+                .getResultList();
     }
 
 }

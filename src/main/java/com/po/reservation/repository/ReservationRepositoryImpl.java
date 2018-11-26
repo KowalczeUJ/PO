@@ -21,7 +21,7 @@ public class ReservationRepositoryImpl implements ReservationRepository {
     @SuppressWarnings("unchecked")
     public List<ReservationDto> getAllReservations() {
         Query query = session.createQuery(
-                "SELECT new com.po.reservation.ReservationDto(" +
+                "SELECT new com.po.reservation.dto.ReservationDto(" +
                     "   user.id, " +
                     "   user.username, " +
                     "   user.isRegular, " +
@@ -47,7 +47,7 @@ public class ReservationRepositoryImpl implements ReservationRepository {
     @SuppressWarnings("unchecked")
     public List<UserReservationDto> getUserReservations(int userId) {
         Query query = session.createQuery(
-                "SELECT new com.po.reservation.UserReservationDto(" +
+                "SELECT new com.po.reservation.dto.UserReservationDto(" +
                         "   user.id, " +
                         "   room.number, " +
                         "   room.type, " +

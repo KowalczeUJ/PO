@@ -17,4 +17,6 @@ public interface RoomRepository {
 
     RoomData getRoomDataForId(int roomId);
 
+    List<RoomView> getAllRooms();
+
 }

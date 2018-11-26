@@ -39,6 +39,7 @@ public class UserTest {
 
         assertNotNull(users);
         assertThat(users.size()).isEqualTo(1);
+        assertThat(users.get(0).getId()).isNotNull().isPositive();
         assertThat(users.get(0).getUsername()).isEqualTo(user.getUsername());
         assertThat(users.get(0).getPassword()).isEqualTo(user.getPassword());
         assertThat(users.get(0).getIsRegular()).isEqualTo(user.getIsRegular());
