@@ -17,4 +17,7 @@ public class RoomView {
     RoomType type;
     BigDecimal pricePerNight;
 
+    public String toString(){
+        return String.format("floor: %d, number of beds: %d, room type: %s, price per night: %f",floor,beds,type,pricePerNight);
+    }
 }

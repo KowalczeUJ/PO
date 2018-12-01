@@ -16,4 +16,7 @@ public class RoomData {
     RoomType type;
     BigDecimal pricePerNight;
 
+    public String toString(){
+        return String.format("room type: %s, price per night: %f",type,pricePerNight);
+    }
 }
