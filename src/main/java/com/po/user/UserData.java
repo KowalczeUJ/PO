@@ -1,5 +1,6 @@
 package com.po.user;
 
+import com.po.db.user.UserType;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -13,5 +14,6 @@ public class UserData {
 
     String username;
     String password;
+    UserType type;
 
 }

@@ -45,7 +45,7 @@ public class SessionFactoryRule implements MethodRule {
                 try {
                     transaction.rollback();
                 } catch (Exception ex) {
-                    ex.printStackTrace();
+                    //ex.printStackTrace();
                 }
                 session.close();
             } catch (Exception ex) {

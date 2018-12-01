@@ -78,8 +78,10 @@ public class ReservationRepositoryImpl implements ReservationRepository {
 
     @Override
     public void deleteReservation(int reservationId) {
+        session.beginTransaction();
         session.createQuery("DELETE FROM Reservation WHERE id = :reservationId")
-                .setParameter("reservationId", reservationId);
+                .setParameter("reservationId", reservationId).executeUpdate();
+        session.getTransaction().commit();
     }
 
 }

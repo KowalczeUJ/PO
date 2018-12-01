@@ -13,7 +13,6 @@ import com.po.room.RoomData;
 import com.po.room.RoomView;
 import com.po.room.repository.RoomRepository;
 import com.po.room.repository.RoomRepositoryImpl;
-import com.po.user.HotelUserData;
 import com.po.user.User;
 import com.po.user.UserData;
 import com.po.user.repository.UserRepository;
@@ -90,9 +89,9 @@ public class HotelService implements Hotel {
     }
 
     @Override
-    public void registerHotelUser(HotelUserData hotelUserData) {
-        if (!userRepository.usernameExists(hotelUserData.getUsername())) {
-            userRepository.addHotelUser(hotelUserData);
+    public void registerHotelUser(UserData userData) {
+        if (!userRepository.usernameExists(userData.getUsername())) {
+            userRepository.addHotelUser(userData);
         }
     }
 

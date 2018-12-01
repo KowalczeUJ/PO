@@ -35,16 +35,13 @@ public class UserTest {
 
         UserRepository userRepository = new UserRepositoryImpl(sessionRule.getsessionFactory());
 
-        List<User> users = userRepository.getAllUsers();
+        List<com.po.user.User> users = userRepository.getAllUsers();
 
         assertNotNull(users);
         assertThat(users.size()).isEqualTo(1);
-        assertThat(users.get(0).getId()).isNotNull().isPositive();
+        assertThat(users.get(0).getUserId()).isNotNull().isPositive();
         assertThat(users.get(0).getUsername()).isEqualTo(user.getUsername());
-        assertThat(users.get(0).getPassword()).isEqualTo(user.getPassword());
-        assertThat(users.get(0).getIsRegular()).isEqualTo(user.getIsRegular());
         assertThat(users.get(0).getType()).isEqualTo(user.getType());
-        assertThat(users.get(0).getCreatedOn()).isEqualTo(user.getCreatedOn());
     }
 
 }

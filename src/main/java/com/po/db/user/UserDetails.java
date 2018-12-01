@@ -1,6 +1,5 @@
 package com.po.db.user;
 
-import com.po.db.user.User;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;

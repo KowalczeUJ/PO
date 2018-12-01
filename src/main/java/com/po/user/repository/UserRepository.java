@@ -1,7 +1,6 @@
 package com.po.user.repository;
 
-import com.po.db.user.User;
-import com.po.user.HotelUserData;
+import com.po.user.User;
 import com.po.user.UserData;
 
 import java.util.List;
@@ -10,11 +9,11 @@ public interface UserRepository {
 
     List<User> getAllUsers();
 
-    com.po.user.User loginUser(UserData userData);
+    User loginUser(UserData userData);
 
-    void addHotelUser(HotelUserData hoteluserData);
+    int addHotelUser(UserData UserData);
 
-    void addBasicUser(UserData userData);
+    int addBasicUser(UserData userData);
 
     void deleteUser(int userId);
 

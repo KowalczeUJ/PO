@@ -11,5 +11,6 @@ public class User {
     int userId;
     String username;
     UserType type;
+    boolean isRegular;
 
 }

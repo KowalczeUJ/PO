@@ -6,7 +6,6 @@ import com.po.reservation.ReservationData;
 import com.po.reservation.dto.ReservationDto;
 import com.po.reservation.dto.UserReservationDto;
 import com.po.room.AvailableRooms;
-import com.po.user.HotelUserData;
 import com.po.user.User;
 import com.po.user.UserData;
 
@@ -18,7 +17,7 @@ public interface Hotel {
 
     void registerUser(UserData userData);
 
-    void registerHotelUser(HotelUserData hotelUserData);
+    void registerHotelUser(UserData userData);
 
     void deleteUser(int userId);
 

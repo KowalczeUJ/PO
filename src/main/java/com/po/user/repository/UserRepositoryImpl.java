@@ -2,7 +2,6 @@ package com.po.user.repository;
 
 import com.po.db.user.User;
 import com.po.db.user.UserType;
-import com.po.user.HotelUserData;
 import com.po.user.UserData;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -20,19 +19,22 @@ public class UserRepositoryImpl implements UserRepository {
     }
 
     @Override
-    public void addHotelUser(HotelUserData hotelUserData) {
+    public int addHotelUser(UserData userData) {
         User hotelUser = User.builder()
-                .username(hotelUserData.getUsername())
-                .password(hotelUserData.getPassword())
-                .type(hotelUserData.getType())
+                .username(userData.getUsername())
+                .password(userData.getPassword())
+                .type(userData.getType())
                 .isRegular(true)
                 .createdOn(LocalDateTime.now())
                 .build();
+
         session.save(hotelUser);
+
+        return hotelUser.getId();
     }
 
     @Override
-    public void addBasicUser(UserData userData) {
+    public int addBasicUser(UserData userData) {
         User user = User.builder()
                 .username(userData.getUsername())
                 .password(userData.getPassword())
@@ -40,27 +42,35 @@ public class UserRepositoryImpl implements UserRepository {
                 .isRegular(false)
                 .createdOn(LocalDateTime.now())
                 .build();
+
         session.save(user);
+
+        return user.getId();
     }
 
     @Override
     public void deleteUser(int userId) {
+        session.beginTransaction();
         session.createQuery("DELETE FROM User WHERE id = :userId")
                 .setParameter("userId", userId)
                 .executeUpdate();
+        session.getTransaction().commit();
     }
 
     @Override
     public boolean isRegular(int userId) {
         Query query = session.createQuery(
-                "SELECT 1 FROM User user " +
-                    "WHERE EXISTS ( " +
-                        "   SELECT 1 FROM User user " +
-                        "   WHERE user.id = :userId)"
+                "SELECT (CASE " +
+                        "   WHEN user.isRegular = 1 THEN TRUE " +
+                        "   ELSE FALSE " +
+                        "   END " +
+                        ") " +
+                        "FROM User user " +
+                        "WHERE user.id = :userId "
         );
         query.setParameter("userId", userId);
 
-        return query.uniqueResult() != null;
+        return (boolean) query.uniqueResult();
     }
 
     @Override
@@ -80,7 +90,7 @@ public class UserRepositoryImpl implements UserRepository {
                 "SELECT 1 FROM User user " +
                     "WHERE EXISTS (" +
                     "   SELECT 1 FROM User user " +
-                    "   WHERE user.username = :userId)")
+                    "   WHERE user.id = :userId)")
                 .setParameter("userId", userId)
                 .uniqueResult() != null;
     }
@@ -108,7 +118,9 @@ public class UserRepositoryImpl implements UserRepository {
                 "SELECT new com.po.user.User(" +
                         "user.id, " +
                         "user.username, " +
-                        "user.type )" +
+                        "user.type, " +
+                        "user.isRegular " +
+                        ")" +
                     "FROM User user " +
                     "WHERE user.username = :username ",
                 com.po.user.User.class);
@@ -119,9 +131,15 @@ public class UserRepositoryImpl implements UserRepository {
 
     @Override
     @SuppressWarnings("unchecked")
-    public List<User> getAllUsers() {
-        return session.createQuery("FROM User")
-                .getResultList();
+    public List<com.po.user.User> getAllUsers() {
+        return session.createQuery("SELECT new com.po.user.User(" +
+                "user.id, " +
+                "user.username, " +
+                "user.type, " +
+                "user.isRegular " +
+                ") " +
+                "FROM User user"
+        ).getResultList();
     }
 
 }
