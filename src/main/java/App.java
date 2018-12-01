@@ -1,4 +1,5 @@
 import com.po.common.Period;
+import com.po.cui.cuiapp.CUIApp;
 import com.po.hotel.Hotel;
 import com.po.hotel.HotelService;
 import com.po.room.AvailableRooms;
@@ -26,6 +27,10 @@ public class App {
         );
 
         System.out.println(rooms);
+
+
+        CUIApp capp = new CUIApp();
+        capp.dostuff(hotel);
 
         sessionFactory.close();
     }

@@ -13,4 +13,12 @@ public class User {
     UserType type;
     boolean isRegular;
 
+    public String toString(){
+        String reg = " (regular customer)";
+        if(!isRegular){
+            reg = "";
+        }
+        return String.format("%s:%s%s",username,type,reg);
+    }
+
 }
