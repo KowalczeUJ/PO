@@ -21,4 +21,10 @@ public class User {
         return String.format("%s:%s%s",username,type,reg);
     }
 
+    public int getId(){
+        return this.userId;
+    }
+    public UserType getType(){
+        return this.type;
+    }
 }
