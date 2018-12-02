@@ -39,8 +39,7 @@ public class Reservation implements Serializable {
     @JoinColumn(
             name = "user_id",
             nullable = false,
-            foreignKey = @ForeignKey(name = "FK_reservation_user_id_user")
-
+            foreignKey = @ForeignKey(name = "reservation_ibfk_1")
     )
     private User user;
 
@@ -48,7 +47,7 @@ public class Reservation implements Serializable {
     @JoinColumn(
             name = "room_id",
             nullable = false,
-            foreignKey = @ForeignKey(name = "FK_reservation_room_id_room")
+            foreignKey = @ForeignKey(name = "reservation_ibfk_2")
     )
     private Room room;
 

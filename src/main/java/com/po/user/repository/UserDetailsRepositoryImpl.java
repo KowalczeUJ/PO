@@ -1,6 +1,5 @@
 package com.po.user.repository;
 
-import com.po.db.user.User;
 import com.po.db.user.UserDetails;
 import com.po.user.UserDetailsData;
 import org.hibernate.Session;
@@ -16,18 +15,8 @@ public class UserDetailsRepositoryImpl implements UserDetailsRepository {
     }
 
     @Override
-    public void addUserDetails(UserDetailsData details) {
-        UserDetails userDetails = UserDetails.builder()
-                .user(User.builder()
-                        .id(details.getUserId())
-                        .build())
-                .address(details.getAddress())
-                .city(details.getCity())
-                .phoneNumber(details.getPhoneNumber())
-                .birthDate(details.getBirthDate())
-                .build();
-
-        session.save(userDetails);
+    public void addUserDetails(UserDetails details) {
+        session.save(details);
     }
 
     @Override

@@ -44,7 +44,7 @@ public class Room implements Serializable {
     private BigDecimal pricePerNight;
 
     public String toString(){
-        return String.format("id: %d, number: %d floor: %d, number of beds: %d, room type: %s, price per night: %f",id,number,floor,beds,type,pricePerNight);
+        return String.format("id: %d, number: %s floor: %d, number of beds: %d, room type: %s, price per night: %f",id,number,floor,beds,type,pricePerNight);
     }
 
 }
