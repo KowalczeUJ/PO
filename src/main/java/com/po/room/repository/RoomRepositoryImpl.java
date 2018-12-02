@@ -27,9 +27,11 @@ public class RoomRepositoryImpl implements RoomRepository {
 
     @Override
     public void delete(String roomNumber) {
+        session.beginTransaction();
         session.createQuery("DELETE FROM Room WHERE number = :number")
                 .setParameter("number", roomNumber)
                 .executeUpdate();
+        session.getTransaction().commit();
     }
 
     @Override
@@ -37,6 +39,7 @@ public class RoomRepositoryImpl implements RoomRepository {
     public List<RoomView> getAvailableRooms(Period period) {
         Query query = session.createQuery(
                 "SELECT new com.po.room.RoomView(" +
+                    "   room.number, " +
                     "   room.floor, " +
                     "   room.beds, " +
                     "   room.type, " +
@@ -80,6 +83,7 @@ public class RoomRepositoryImpl implements RoomRepository {
     public List<RoomView> getAllRooms() {
         return session.createQuery(
                 "SELECT new com.po.room.RoomView(" +
+                    "   room.number, " +
                     "   room.floor, " +
                     "   room.beds, " +
                     "   room.type, " +

@@ -37,7 +37,7 @@ CREATE TABLE IF NOT EXISTS user_details (
   birth_date DATE NOT NULL,
   PRIMARY KEY (id),
   UNIQUE(user_id),
-  FOREIGN KEY (user_id) REFERENCES user (id) ON DELETE CASCADE
+  FOREIGN KEY (user_id) REFERENCES user(id) ON DELETE CASCADE
 );
 
 CREATE TABLE IF NOT EXISTS reservation (

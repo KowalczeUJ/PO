@@ -12,6 +12,7 @@ import java.math.BigDecimal;
 @Builder
 public class RoomView {
 
+    String number;
     int floor;
     int beds;
     RoomType type;

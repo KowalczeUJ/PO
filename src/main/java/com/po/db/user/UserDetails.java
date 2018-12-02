@@ -35,7 +35,7 @@ public class UserDetails implements Serializable {
     @JoinColumn(
             name = "user_id",
             nullable = false,
-            foreignKey = @ForeignKey(name = "FK_user_details_user_id_user")
+            foreignKey = @ForeignKey(name = "user_details_ibfk_1")
     )
     private User user;
     
