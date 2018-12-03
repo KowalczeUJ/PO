@@ -12,6 +12,7 @@ import java.math.BigDecimal;
 @Builder
 public class RoomView {
 
+    int id;
     String number;
     int floor;
     int beds;
@@ -19,6 +20,6 @@ public class RoomView {
     BigDecimal pricePerNight;
 
     public String toString(){
-        return String.format("floor: %d, number of beds: %d, room type: %s, price per night: %f",floor,beds,type,pricePerNight);
+        return String.format("id: %d, number: %s, floor: %d, number of beds: %d, room type: %s, price per night: %f",id,number,floor,beds,type,pricePerNight);
     }
 }
