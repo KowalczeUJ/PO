@@ -39,6 +39,7 @@ public class RoomRepositoryImpl implements RoomRepository {
     public List<RoomView> getAvailableRooms(Period period) {
         Query query = session.createQuery(
                 "SELECT new com.po.room.RoomView(" +
+                    "   room.id, " +
                     "   room.number, " +
                     "   room.floor, " +
                     "   room.beds, " +
@@ -83,6 +84,7 @@ public class RoomRepositoryImpl implements RoomRepository {
     public List<RoomView> getAllRooms() {
         return session.createQuery(
                 "SELECT new com.po.room.RoomView(" +
+                    "   room.id, " +
                     "   room.number, " +
                     "   room.floor, " +
                     "   room.beds, " +

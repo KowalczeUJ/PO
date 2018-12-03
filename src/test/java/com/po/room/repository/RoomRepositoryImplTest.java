@@ -53,7 +53,10 @@ public class RoomRepositoryImplTest {
                 .pricePerNight(new BigDecimal("175.00"))
                 .build();
 
+        repository.save(room);
+
         RoomView expected = RoomView.builder()
+                .id(room.getId())
                 .number(room.getNumber())
                 .floor(room.getFloor())
                 .beds(room.getBeds())
@@ -61,7 +64,6 @@ public class RoomRepositoryImplTest {
                 .pricePerNight(room.getPricePerNight())
                 .build();
 
-        repository.save(room);
         List<RoomView> rooms = repository.getAllRooms();
 
         assertThat(rooms).contains(expected);
@@ -80,6 +82,7 @@ public class RoomRepositoryImplTest {
         Period period = new Period(LocalDate.of(2018, 11, 30), LocalDate.of(2018, 12, 14));
 
         RoomView expectedRoom = RoomView.builder()
+                .id(ROOM.getId())
                 .number(ROOM.getNumber())
                 .floor(ROOM.getFloor())
                 .beds(ROOM.getFloor())
@@ -108,6 +111,7 @@ public class RoomRepositoryImplTest {
         List<RoomView> rooms = repository.getAllRooms();
 
         RoomView expectedRoom = RoomView.builder()
+                .id(ROOM.getId())
                 .number(ROOM.getNumber())
                 .floor(ROOM.getFloor())
                 .beds(ROOM.getFloor())
