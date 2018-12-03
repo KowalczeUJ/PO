@@ -26,7 +26,7 @@ public class App {
                 )
         );
 
-        System.out.println(rooms);
+        //System.out.println(rooms);
 
 
         CUIApp capp = new CUIApp();

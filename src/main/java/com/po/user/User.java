@@ -27,4 +27,7 @@ public class User {
     public UserType getType(){
         return this.type;
     }
+    public boolean getRegular(){
+        return this.isRegular;
+    }
 }

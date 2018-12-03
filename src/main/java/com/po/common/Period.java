@@ -16,4 +16,10 @@ public class Period {
         return String.format("from: %s to: %s ", startDate.toString(),endDate.toString());
     }
 
+    public LocalDate getEndDate() {
+        return endDate;
+    }
+    public LocalDate getStartDate() {
+        return startDate;
+    }
 }

@@ -57,4 +57,13 @@ public  class Util {
         }
         return new Period(date1,date2);
     }
+
+    public static Integer getInt(Integer min, Integer max){
+        int i = State.scanner.nextInt();
+        if (i < min || i > max) {
+            System.out.println(String.format("%d must be in range: %d to %d",i,min,max));
+            return null;
+        }
+        return i;
+    }
 }

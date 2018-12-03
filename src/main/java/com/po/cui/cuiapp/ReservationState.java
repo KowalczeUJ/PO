@@ -17,6 +17,7 @@ public class ReservationState extends State{
         this.viewAvailableRooms = new ViewAvailableRoomsAction(d);
         this.viewUserReservations = new ViewUserReservationsAction(d);
         this.viewReservations = new ViewReservationsAction(d);
+        this.makeReservation = new MakeReservationAction(d);
         this.addAction(this.viewAvailableRooms);
     }
 
@@ -25,6 +26,7 @@ public class ReservationState extends State{
         if(this.display.currentUser!=null){
 
             this.addAction(this.viewUserReservations);
+            this.addAction(this.makeReservation);
 
             if(this.display.currentUser.getType()== UserType.ADMIN || this.display.currentUser.getType()== UserType.RECEPTIONIST){
 
@@ -36,7 +38,7 @@ public class ReservationState extends State{
 
             }
         }else{
-
+            this.actionMap.remove(this.makeReservation.name);
             this.actionMap.remove(this.viewUserReservations.name);
             this.actionMap.remove(this.viewReservations.name);
 

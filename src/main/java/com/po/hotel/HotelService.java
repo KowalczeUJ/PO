@@ -52,7 +52,7 @@ public class HotelService implements Hotel {
                 .isRegular(userRepository.isRegular(reservationData.getUserId()))
                 .build();
 
-        ReservationService service = new ReservationService(reservationRepository, roomData, reservationData);
+        ReservationService service = new ReservationService(reservationRepository, roomData, reservationData, userRepository, roomRepository);
         service.makeReservation();
     }
 

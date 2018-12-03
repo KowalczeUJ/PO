@@ -96,6 +96,13 @@ public class UserRepositoryImpl implements UserRepository {
     }
 
     @Override
+    public User getUserForId(int userId) {
+        return session.createQuery("FROM User WHERE id = :userId", User.class)
+                .setParameter("userId", userId)
+                .getSingleResult();
+    }
+
+    @Override
     public com.po.user.User loginUser(UserData userData) {
         boolean exists = session.createQuery(
                 "SELECT 1 FROM User user " +
@@ -141,5 +148,7 @@ public class UserRepositoryImpl implements UserRepository {
                 "FROM User user"
         ).getResultList();
     }
+
+
 
 }

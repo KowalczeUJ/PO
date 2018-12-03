@@ -5,6 +5,8 @@ import com.po.db.room.Room;
 import com.po.db.user.User;
 import com.po.reservation.repository.ReservationRepository;
 import com.po.room.RoomData;
+import com.po.room.repository.RoomRepository;
+import com.po.user.repository.UserRepository;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
@@ -17,25 +19,28 @@ public class ReservationService {
     private final RoomData roomData;
     private final ReservationData reservationData;
     private final ReservationRepository reservationRepository;
+    private final UserRepository userRepository;
+    private final RoomRepository roomRepository;
 
     public ReservationService(ReservationRepository reservationRepository,
                               RoomData roomData,
-                              ReservationData reservationData) {
+                              ReservationData reservationData,
+                              UserRepository userRepository,
+                              RoomRepository roomRepository
+    ) {
         this.roomData = roomData;
         this.reservationData = reservationData;
         this.reservationRepository = reservationRepository;
+        this.userRepository = userRepository;
+        this.roomRepository = roomRepository;
     }
 
     public void makeReservation() {
         BigDecimal totalCost = getTotalReservationCost();
 
         Reservation reservation = Reservation.builder()
-                .user(User.builder()
-                        .id(reservationData.getUserId())
-                        .build())
-                .room(Room.builder()
-                        .id(roomData.getId())
-                        .build())
+                .user(userRepository.getUserForId(reservationData.getUserId()))
+                .room(roomRepository.getRoomForId(roomData.getId()))
                 .price(totalCost)
                 .persons(reservationData.getPersons())
                 .startDate(reservationData.getStartDate())
