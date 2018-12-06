@@ -20,6 +20,18 @@ public class Display {
     }
 
     public void login(UserData userData){
-        this.currentUser = this.hotel.login(userData);
+        User u = this.hotel.login(userData);
+        if(u!=null){
+            this.currentUser = u;
+        }
+
+    }
+
+    public void logout(){
+        this.currentUser = null;
+    }
+
+    public void exit(){
+        this.currentState = null;
     }
 }

@@ -25,4 +25,9 @@ public class UserReservationDto {
     LocalDate endDate;
     LocalDateTime createdOn;
 
+    public String toString(){
+        String out = "";
+        out = String.format("room number:%s, room type:%s, total price: %s, num of guests:%d, from:%s, to:%s, reserved on:%s",roomNumber,roomType,totalPrice.toString(),persons,startDate,endDate,createdOn);
+        return out;
+    }
 }

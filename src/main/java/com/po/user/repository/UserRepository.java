@@ -22,4 +22,7 @@ public interface UserRepository {
     boolean usernameExists(String username);
 
     boolean exists(int userId);
+
+    com.po.db.user.User getUserForId(int userId);
+
 }

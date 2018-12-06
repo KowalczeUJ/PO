@@ -96,4 +96,11 @@ public class RoomRepositoryImpl implements RoomRepository {
                 .getResultList();
     }
 
+    @Override
+    public Room getRoomForId(int roomId) {
+        return session.createQuery("FROM Room WHERE id = :roomId", Room.class)
+                .setParameter("roomId", roomId)
+                .getSingleResult();
+    }
+
 }
