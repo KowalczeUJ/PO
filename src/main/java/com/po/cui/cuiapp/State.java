@@ -1,9 +1,6 @@
 package com.po.cui.cuiapp;
 
-import com.po.cui.Util;
-
 import java.util.HashMap;
-import java.util.HashSet;
 import java.util.Scanner;
 
 public class State {
